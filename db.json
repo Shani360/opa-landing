@@ -1,0 +1,90 @@
+{
+  "employees": [
+    {
+      "id": "0",
+      "firstName": "דיויד",
+      "lastName": "בואי",
+      "title": "מפתח/ת FS",
+      "department": "מערכות מידע",
+      "isCarOwner": true,
+      "age": 24
+    },
+    {
+      "id": "1",
+      "firstName": "וויטני",
+      "lastName": "יוסטון",
+      "title": "מפתחת/ת BI",
+      "department": "מערכות מידע",
+      "isCarOwner": false,
+      "age": 42
+    },
+    {
+      "id": "2",
+      "firstName": "פרדי",
+      "lastName": "מרקורי",
+      "title": "גזבר/ית",
+      "department": "כספים",
+      "isCarOwner": true,
+      "age": 35
+    },
+    {
+      "id": "3",
+      "firstName": "איימי",
+      "lastName": "ווינהאוס",
+      "title": "משא״ן",
+      "department": "משא״ן",
+      "isCarOwner": false,
+      "age": 64
+    },
+    {
+      "id": "4",
+      "firstName": "קלי",
+      "lastName": "קלארקסון",
+      "title": "משא״ן",
+      "department": "משא״ן",
+      "isCarOwner": true,
+      "age": 35
+    },
+    {
+      "id": "5",
+      "firstName": "דמי",
+      "lastName": "לובאטו",
+      "title": "מפתח/ת FS",
+      "department": "מערכות מידע",
+      "isCarOwner": false,
+      "age": 29
+    },
+    {
+      "id": "6",
+      "firstName": "מיילי",
+      "lastName": "סיירוס",
+      "title": "גזבר/ית",
+      "department": "כספים",
+      "isCarOwner": true,
+      "age": 31
+    },
+    {
+      "id": "7",
+      "firstName": "סלינה",
+      "lastName": "גומז",
+      "title": "פקיד/ה",
+      "department": "כספים",
+      "isCarOwner": true,
+      "age": 32
+    },
+    {
+      "id": "8",
+      "firstName": "ליידי",
+      "lastName": "גאגא",
+      "title": "פקיד/ה",
+      "department": "ניקיון",
+      "isCarOwner": false,
+      "age": 42
+    }
+  ],
+
+  "titles": ["מפתח/ת FS", "מפתחת/ת BI", "גזבר/ית", "משא״ן", "פקיד/ה"],
+
+  "departments" : ["ניקיון", "מערכות מידע", "כספים", "משא״ן"]
+
+}

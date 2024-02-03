@@ -1,0 +1,76 @@
+<div class="converter-container">
+    <h4 class="headline"><strong>הוספת עובד/ת חדש/ה</strong></h4>
+    <form [formGroup]="employeeForm">
+            <div class="converter-inputs-container">
+                @if (employeeForm.get('firstName')?.hasError('minlength') && !employeeForm.get('firstName')?.hasError('required')) {
+                    <mat-error>שם חייב להיות יותר מאות אחת</mat-error>
+                }
+                @if (employeeForm.get('firstName')?.hasError('pattern') && !employeeForm.get('firstName')?.hasError('required')) {
+                    <mat-error>שם חייב להיות עברית בלבד ללא מספרים</mat-error>
+                }
+                @if (employeeForm.touched && employeeForm.get('firstName')?.hasError('required')) {
+                    <mat-error><strong>שדה חובה</strong></mat-error>
+                }
+                <mat-form-field>
+                    <mat-label for="firstName"> שם:</mat-label>
+                    <input #firstName matInput type="text" formControlName="firstName">
+                </mat-form-field>
+                <br/>
+            
+
+                @if (employeeForm.get('lastName')?.hasError('minlength') && !employeeForm.get('lastName')?.hasError('required')) {
+                    <mat-error>שם חייב להיות יותר מאות אחת</mat-error>
+                }
+                @if (employeeForm.get('lastName')?.hasError('pattern') && !employeeForm.get('lastName')?.hasError('required')) {
+                    <mat-error>שם חייב להיות עברית בלבד ללא מספרים</mat-error>
+                }
+                @if (employeeForm.touched && employeeForm.get('lastName')?.hasError('required')) {
+                    <mat-error><strong>שדה חובה</strong></mat-error>
+                }
+                <mat-form-field>
+                    <mat-label for="lastName">שם משפחה: </mat-label>
+                    <input matInput required type="text" formControlName="lastName">
+                </mat-form-field>
+                <br/>
+            
+                <mat-form-field>
+                    <mat-label for="title"> תפקיד:</mat-label>
+                    <mat-select required formControlName="title">
+                        <mat-option *ngFor="let option of titlesOptions" [value]="option">{{option}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br/>
+
+
+                <mat-form-field>
+                    <mat-label for="department">מחלקה: </mat-label>
+                    <mat-select required formControlName="department">
+                        <mat-option *ngFor="let option of departmentsOptions" [value]="option">{{option}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br/>
+
+                <mat-checkbox formControlName="isCarOwner">רכב בבעלות החברה</mat-checkbox>
+                <br/>
+
+                @if (employeeForm.get('age')?.hasError('pattern') && !employeeForm.get('age')?.hasError('required')) {
+                    <mat-error>גיל חוקי בין 99- 18</mat-error>
+                }
+                @if (employeeForm.touched && employeeForm.get('age')?.hasError('required')) {
+                    <mat-error><strong>שדה חובה</strong></mat-error>
+                }
+                <mat-form-field>
+                    <label for="lage"> גיל:</label>
+                    <input id="age" required type="number" min="18" max="99" matInput formControlName="age">
+                </mat-form-field>
+
+            </div>
+
+            @if (isUserExist) {
+                <mat-error><strong>טופס עובד קיים במערכת</strong></mat-error>
+            }
+
+            <button mat-raised-button (click)="addEmployee()" [disabled]="!this.employeeForm.valid">{{isUpdatingForm ? 'עדכון' : 'הוספה'}}</button>
+
+    </form>
+</div>

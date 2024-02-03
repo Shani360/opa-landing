@@ -1,0 +1,48 @@
+<div>
+    <h4 class="headline"><strong>פרטי העובדים שנקלטו</strong></h4>
+
+    <table mat-table [dataSource]="dataSource" matSort #empTbSort="matSort" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="formId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>מס׳ טופס</th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-stroked-button (click)="loadForm(element)">{{element.id.toString()}}</button>
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>שם העובד</th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName | fullNameDisplay : element.lastName}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>תפקיד</th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>מחלקה</th>
+        <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="isCarOwner">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>בעל רכב חברה</th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon *ngIf="element.isCarOwner" aria-hidden="false" aria-label="is_car_owner" fontIcon="check"></mat-icon>
+         </td>
+      </ng-container>
+
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>טווח גילאים</th>
+        <td mat-cell *matCellDef="let element"> {{element.age | ageRangeDisplay}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
