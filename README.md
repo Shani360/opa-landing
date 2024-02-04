@@ -13,3 +13,8 @@
 `npm start`
 
 On your browser enter `localhost:4200`
+
+## Getting started with the server
+
+`json-server --watch db.json --port 8000`
+
